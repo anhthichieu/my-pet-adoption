@@ -14,6 +14,26 @@ export default new Vuex.Store({
 
   state: () => ({
     cats,
-    dogs
+    dogs,
+    pets: [...cats, ...dogs]
   }),
+  mutations: {
+    appendPet: (state, { species, pet }) => { state[species].push(pet) }
+  },
+  actions: {
+    addPet: ({ commit }, payload) => {
+      commit('appendPet', payload)
+    }
+  },
+  getters: {
+    animalCount: state => {
+      return state.pets.length;
+    },
+    getAllCats: (state, getters) => {
+      return state.pets.filter(pet => { return pet.species === 'cat' })
+    },
+    getAllDogs: state => {
+      return state.dogs
+    }
+  }
 })
