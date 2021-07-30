@@ -1,11 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import store from './store'
+// import myPets from './myPets'
+
+import cats from '@/data/cats';
+import dogs from '@/data/dogs';
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
-  modules: {
-    store,
-  }
+  // modules: {
+  //   myPets
+  // }
+
+  state: () => ({
+    cats,
+    dogs
+  }),
 })
