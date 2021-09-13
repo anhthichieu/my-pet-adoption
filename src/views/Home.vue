@@ -81,11 +81,12 @@ export default {
       const payload = {
         species,
         pet: {
-          species: species.slice(0, species.length - 1),
+          species: species.slice(0, species.length - 1), // bo bot chu 's' o cuoi cats va dogs
           name,
           age,
         },
       };
+      console.log('payload Thi Check', payload);
       await this.$store.dispatch('addPet', payload);
       // this.addPet(payload);
 
